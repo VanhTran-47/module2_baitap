@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>[Bài tập] Biến, kiểu dữ liệu và toán tử</title>
+</head>
+<body>
+<h1>[Bài tập] Biến, kiểu dữ liệu và toán tử</h1>
+<script>
+  let diemVatLy = parseFloat(prompt("Nhập điểm Vật lý:"));
+  let diemHoaHoc = parseFloat(prompt("Nhập điểm Hóa học:"));
+  let diemSinhHoc = parseFloat(prompt("Nhập điểm Sinh học:"));
+
+  document.write("<h2>Bài 1: Viết chương trình nhập điểm của một sinh viên cho các môn: Vật lý, Hóa học, và Sinh học. Sau đó hiển thị điểm trung bình và tổng của những điểm này.</h2>")
+  document.write("Điểm Vật lý: " + diemVatLy);
+  document.write("</br>")
+  document.write("Điểm Hóa học: " + diemHoaHoc);
+  document.write("</br>")
+  document.write("Điểm Sinh học: " + diemSinhHoc);
+  document.write("</br>")
+  document.write("Tổng điểm 3 môn là: " + (diemVatLy + diemHoaHoc + diemSinhHoc));
+  document.write("</br>")
+  document.write("Trung bình điểm 3 môn là: " + (diemVatLy + diemHoaHoc + diemSinhHoc) / 3);
+</script>
+</body>
+</html>

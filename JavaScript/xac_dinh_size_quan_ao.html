@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chon size quan ao</title>
+</head>
+<body>
+<script>
+    let weight = prompt("Nhập cân nặng của bạn (kg): ");
+    weight = +weight;
+    if (isNaN(weight) || weight <= 0) {
+        document.write("Vui lòng nhập một số cân nặng hợp lệ. ");
+    } else {
+        let size;
+        if (weight < 50) {
+            size = "S";
+        } else if (weight >= 50 && weight <= 65) {
+            size = "M";
+        } else if (weight >= 66 && weight <= 80) {
+            size = "L";
+        } else {
+            size = "XL";
+        }
+        document.write("Cân nặng của bạn là " + weight + "kg. Size quần áo phù hợp là: " + size);
+    }
+</script>
+</body>
+</html>

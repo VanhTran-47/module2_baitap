@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Biến, kiểu dữ liệu và toán tử</title>
+</head>
+<body>
+<h1>[Bài tập] Biến, kiểu dữ liệu và toán tử</h1>
+<script>
+    let R = parseFloat(prompt("Nhập bán kính R của hình tròn: "));
+    let S = Math.PI * R * R;
+    let C = 2 * Math.PI * R;
+
+    // Kiểm tra nếu R là số hợp lệ
+    if (isNaN(R) || R <= 0) {
+        alert("Vui lòng nhập bán kính hợp lệ (số dương)!");
+    } else {
+        // Hiển thị kết quả
+        document.write("<h2>Bài 3: Viết chương trình tính diện tích hình tròn</h2>")
+        document.write("</br>")
+        document.write("Diện tích hình tròn: " + "\u03C0" + " * " + "R * R" + " = " + S);
+        document.write("</br>")
+        document.write("<h2>Bài 4: Viết chương trình chu vi hình tròn</h2>")
+        document.write("</br>")
+        document.write("Chu vi hình tròn: " + "\u03C0" + " * " + " 2 " + " * " + " R " + " = " + C);
+    }
+</script>
+</body>
+</html>
