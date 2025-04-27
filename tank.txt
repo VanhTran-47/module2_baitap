@@ -1,0 +1,91 @@
+const canvas = document.getElementById('gameCanvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext('2d');
+
+// Tải hình ảnh
+const tankImage = new Image();
+tankImage.src = './assets/images/Tank 1.png';
+tankImage.width = 100;
+tankImage.height = 163;
+const bulletImage = new Image();
+bulletImage.src = "assets/images/Ellipse 1.png";
+
+
+// Tọa độ ban đầu của xe tăng người chơi
+let player = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    angle: 0,
+};
+
+// Di chuyển theo chuột
+canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    player.angle = Math.atan2(mouseY - player.y, mouseX - player.x);
+});
+
+// Cập nhật vị trí xe tăng
+function update(deltaTime) {
+    // TODO: sau này sẽ thêm di chuyển
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Vẽ xe tăng quay theo chuột
+    ctx.save();
+    ctx.translate(player.x, player.y);
+    ctx.rotate(player.angle + Math.PI / 2); // thử góc bù
+    ctx.drawImage(tankImage, -tankImage.width / 2, -tankImage.height / 2, tankImage.width, tankImage.height);
+    ctx.restore();
+}
+
+// Vòng lặp game
+let lastTime = 0;
+function gameLoop(timestamp) {
+    const deltaTime = (timestamp - lastTime) / 1000;
+    lastTime = timestamp;
+
+    update(deltaTime);
+    draw();
+
+    requestAnimationFrame(gameLoop);
+}
+
+tankImage.onload = () => {
+    requestAnimationFrame(gameLoop);
+};
+
+
+
+
+canvas.addEventListener("mousedown", (e) => {
+    const now = performance.now() / 1000; // chuyển sang giây
+
+    if (e.button === 0 && now - lastShotTime > shootDelay) {
+        lastShotTime = now;
+
+        const angle = player.angle;
+        const bullet = {
+            x: player.x + Math.cos(angle) * 40, // lệch về phía nòng
+            y: player.y + Math.sin(angle) * 40,
+            vx: Math.cos(angle) * bulletSpeed,
+            vy: Math.sin(angle) * bulletSpeed,
+        };
+
+        bullets.push(bullet);
+
+        // Giật lùi xe tăng
+        player.x -= Math.cos(angle) * 10;
+        player.y -= Math.sin(angle) * 10;
+
+        // Phát âm thanh bắn
+        const shootSound = new Audio("assets/sfx/cannon-explosion-39434.mp3");
+        shootSound.volume = 0.3;
+        shootSound.play();
+    }
+});

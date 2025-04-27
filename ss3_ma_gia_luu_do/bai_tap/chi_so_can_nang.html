@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI</title>
+</head>
+<body>
+<script>
+  const weight = +prompt ("Nhập cân nặng của bạn: ");
+  const height = +prompt ("Nhập chiều cao của bạn: ");
+  const BMI = weight / (height ^ 2)
+  if (BMI < 18.5) {
+    Interpretation = "Underweight";
+  } else if (BMI >= 18.5 && BMI < 25.0) {
+    Interpretation = "Normal";
+  } else if (BMI >= 25.0 && BMI < 30.0) {
+    Interpretation = "Overweight";
+  } else {
+    Interpretation = "Obese";
+  }
+  document.write("Chỉ số BMI của bạn là: " + BMI + "BMI. Thể trạng của bạn: " + Interpretation);
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="product.js"></script>
+    <link rel="stylesheet" href="style_product.css">
+</head>
+<body>
+<h2>Add New Product</h2>
+<form onsubmit="createProduct(event)">
+    <input type="text" name="productName" id="productName" placeholder="Add new product">
+    <button type="submit" id="btnAdd">Add</button>
+</form>
+<h2>Display All Product</h2>
+<div class="heading">
+    <strong>Product Name</strong>
+    <strong id="productCount">SL Products</strong>
+</div>
+<table>
+    <tbody id="productList">
+    <tr>
+        <td>Sony Experia</td>
+        <td><button type="button">Edit</button></td>
+        <td><button type="button">Delete</button></td>
+    </tr>
+    </tbody>
+</table>
+<script src="script.js"></script>
+</body>
+</html>

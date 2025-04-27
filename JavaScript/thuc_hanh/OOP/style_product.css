@@ -1,0 +1,39 @@
+button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+}
+
+input {
+    padding: 6px 12px;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+}
+
+.heading strong:nth-child(2) {
+    color: red;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 6px 12px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+td:nth-child(1) {
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
